@@ -393,9 +393,9 @@
 
 			}
 
-			const loader = new GLTFLoader().setPath( 'https://github.com/mrdoob/three.js/blob/dev/examples/models/gltf/' );
+			const loader = new GLTFLoader().setPath( 'Access-Control-Allow-Origin: https://github.com/mrdoob/three.js/blob/dev/examples/models/gltf/' );
 
-			loader.load( 'collision-world.glb?raw=true', ( gltf ) => {
+			loader.load( 'collision-world.glb', ( gltf ) => {
 
 				scene.add( gltf.scene );
 
