@@ -512,8 +512,8 @@
 
 				stats.update();
 				
-				sphereColor = new THREE.Color(Math.random(), Math.random(), Math.random());
-				sphereMaterial = new THREE.MeshStandardMaterial( { color: sphereColor, roughness: 0.5, metalness: 1 } );
+				sphereColor = THREE.Color(Math.random(), Math.random(), Math.random());
+				sphereMaterial = THREE.MeshStandardMaterial( { color: sphereColor, roughness: 0.5, metalness: 1 } );
 
 				requestAnimationFrame( animate );
 
