@@ -1,3 +1,6 @@
+//  .
+// /|\ Modified
+///_°_\
 var Stats = function () {
 
 	var mode = 0;
@@ -24,7 +27,7 @@ var Stats = function () {
 
 		for ( var i = 0; i < container.children.length; i ++ ) {
 
-			container.children[ i ].style.display = i === id ? 'block' : 'none';
+			container.children[ i ].style.display = i === id ? 'block' : 'block'/*'none'*/;
 
 		}
 
