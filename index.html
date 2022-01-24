@@ -181,8 +181,6 @@
 
 			document.addEventListener( 'mouseup', () => {
 				
-				sphereColor = new THREE.Color(Math.random(), Math.random(), Math.random());
-				sphereMaterial = new THREE.MeshStandardMaterial( { color: sphereColor, roughness: 0.5, metalness: 1 } );
 				throwBall();
 
 			} );
@@ -513,6 +511,9 @@
 				renderer.render( scene, camera );
 
 				stats.update();
+				
+				sphereColor = new THREE.Color(Math.random(), Math.random(), Math.random());
+				sphereMaterial = new THREE.MeshStandardMaterial( { color: sphereColor, roughness: 0.5, metalness: 1 } );
 
 				requestAnimationFrame( animate );
 
