@@ -96,8 +96,8 @@
 			const STEPS_PER_FRAME = 5;
 
 			const sphereGeometry = new THREE.SphereGeometry( SPHERE_RADIUS, 32, 32 );
-			const sphereMaterial = new THREE.MeshStandardMaterial( { color: new THREE.Color().setHSL(Math.random(), Math.random(), Math.random()), 
-										roughness: 0, metalness: 1 } );
+			const sphereColor = new THREE.Color().setHSL(Math.random(), Math.random(), Math.random());
+			const sphereMaterial = new THREE.MeshStandardMaterial( { color: sphereColor, roughness: 0, metalness: 1 } );
 
 			const spheres = [];
 			let sphereIdx = 0;
