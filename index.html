@@ -133,6 +133,12 @@
 			
 			for ( let i = 0; i < NUM_SPHERES; i ++ ) {
 
+				
+				sphereColor.r = Math.random();
+				sphereColor.g = Math.random();
+				sphereColor.b = Math.random();
+				sphereMaterial.color = sphereColor;
+				
 				const sphere = new THREE.Mesh( sphereGeometry, sphereMaterial );
 				sphere.castShadow = true;
 				sphere.receiveShadow = true;
@@ -490,11 +496,6 @@
 
 
 			function animate() {
-
-				sphereColor.r = Math.random();
-				sphereColor.g = Math.random();
-				sphereColor.b = Math.random();
-				sphereMaterial.color = sphereColor;
 				
 				const deltaTime = Math.min( 0.05, clock.getDelta() ) / STEPS_PER_FRAME;
 
