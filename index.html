@@ -131,9 +131,19 @@
 			addLabel( '-diffuse', new THREE.Vector3( 0, 0, - 300 ) );
 			addLabel( '+diffuse', new THREE.Vector3( 0, 0, 300 ) );*/
 			
+			const material = [];
+			
 			for ( let i = 0; i < NUM_SPHERES; i ++ ) {
 				
-				const sphere = new THREE.Mesh( sphereGeometry, sphereMaterial );
+				sphereColor.r = Math.random();
+				sphereColor.g = Math.random();
+				sphereColor.b = Math.random();
+				
+				sphereMaterial.color = sphereColor;
+
+				material[i] = sphereMaterial;
+				
+				const sphere = new THREE.Mesh( sphereGeometry, material[i] );
 				sphere.castShadow = true;
 				sphere.receiveShadow = true;
 
