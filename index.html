@@ -415,7 +415,7 @@
 
 				}
 
-				if ( keyStates[ 'KeyA' ] | keyStates[ 'Q' ] ) {
+				if ( keyStates[ 'KeyA' ] | keyStates[ 'A' ] ) {
 
 					playerVelocity.add( getSideVector().multiplyScalar( - speedDelta ) );
 
@@ -491,6 +491,11 @@
 
 			function animate() {
 
+				sphereColor.r = Math.random();
+				sphereColor.g = Math.random();
+				sphereColor.b = Math.random();
+				sphereMaterial.color = sphereColor;
+				
 				const deltaTime = Math.min( 0.05, clock.getDelta() ) / STEPS_PER_FRAME;
 
 				// we look for collisions in substeps to mitigate the risk of
