@@ -1,5 +1,5 @@
 # ThreeJs.LAPCoder
-Three js test.
+Three js game.
 
 # Source
 
