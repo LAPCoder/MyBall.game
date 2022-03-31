@@ -1,5 +1,5 @@
-# ThreeJs.LAPCoder
-Three js game.
+# MyBall.game
+Was: ThreeJs.LAPCoder
 
 # Source
 

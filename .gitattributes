@@ -1,4 +1,5 @@
 *.[^js] linguist-detectable=true
-*       linguist-documentation=false
+*.[^js] linguist-documentation=false
 
 *.js    linguist-detectable=false
+*.js    linguist-documentation=true
