@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Three.js game</title>
+		<title>MyBall game</title>
 		<style>
 			body {
 				margin: 0; 
@@ -52,10 +52,15 @@
 					Click to play
 				</p>
 				<p>
-					Move:  WASD<br/>
-					Jump:  SPACE<br/>
+					Move:  WASD<br />
+					Jump:  SPACE<br />
 					Look:  MOUSE<br />
 					Plane: C
+				</p>
+				<p>
+					If you see a black screen, the game is loading:<br />
+					Don't switch tab or click.<br />
+					If you see a gray screen, the game is brocken.<br />
 				</p>
 			</div>
 		</div>
@@ -64,17 +69,17 @@
 
 		<script type="module">
 
-			import * as THREE from 'https://lapcoder.github.io/ThreeJs.LAPCoder/js/three.module.js';
+			import * as THREE from './js/three.module.js';
 			
-			import { TextGeometry } from 'https://lapcoder.github.io/ThreeJs.LAPCoder/js/geometries/TextGeometry.js';
+			import { TextGeometry } from './js/geometries/TextGeometry.js';
 
-			import Stats from 'https://lapcoder.github.io/ThreeJs.LAPCoder/js/stats.module.js';
+			import Stats from './js/stats.module.js';
 
-			import { GLTFLoader } from 'https://lapcoder.github.io/ThreeJs.LAPCoder/js/loaders/GLTFLoader.js';
+			import { GLTFLoader } from './js/loaders/GLTFLoader.js';
 
-			import { Octree } from 'https://lapcoder.github.io/ThreeJs.LAPCoder/js/math/Octree.js';
-			import { Capsule } from 'https://lapcoder.github.io/ThreeJs.LAPCoder/js/math/Capsule.js';
-			import { PointerLockControls } from 'https://lapcoder.github.io/ThreeJs.LAPCoder/js/controls/PointerLockControls.js';
+			import { Octree } from './js/math/Octree.js';
+			import { Capsule } from './js/math/Capsule.js';
+			import { PointerLockControls } from './js/controls/PointerLockControls.js';
 			
 
 			const clock = new THREE.Clock();
@@ -145,7 +150,7 @@
 			const spheres = [];
 			let sphereIdx = 0;
 
-			
+			/*
 			function addLabel( name, location, font ) {
 
 				const textGeo = new TextGeometry( name, {
@@ -165,7 +170,7 @@
 
 			}
 			
-			addLabel( 'Some text', new THREE.Vector3( -10, 0.5, -7.5 ), 'gentilis');
+			addLabel( 'Some text', new THREE.Vector3( -10, 0.5, -7.5 ), 'gentilis');*/
 
 			/*addLabel( '+roughness', new THREE.Vector3( - 350, 0, 0 ) );
 			addLabel( '-roughness', new THREE.Vector3( 350, 0, 0 ) );
@@ -531,7 +536,7 @@
 
 			}
 
-			const loader = new GLTFLoader().setPath( './' /*'https://lapcoder.github.io/ThreeJs.LAPCoder/' /*'https://threejs.org/examples/models/gltf/'*/ );
+			const loader = new GLTFLoader().setPath( './' /*'https://threejs.org/examples/models/gltf/'*/ );
 
 			loader.load( 'collision-world.glb', ( gltf ) => {
 
