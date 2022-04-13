@@ -503,7 +503,7 @@
 
 				}
 
-				if ( keyStates[ 'KeyA' ] | keyStates[ 'A' ] ) {
+				if ( keyStates[ 'KeyA' ] || keyStates[ 'KeyQ' ] ) {
 
 					playerVelocity.add( getSideVector().multiplyScalar( - speedDelta ) );
 
