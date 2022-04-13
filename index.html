@@ -148,6 +148,8 @@
 			var sphereColor = new THREE.Color(Math.random(), Math.random(), Math.random());
 			var sphereMaterial = new THREE.MeshStandardMaterial( { color: sphereColor, roughness: 0.5, metalness: 1 } );
 
+			var locked = false;
+
 			const spheres = [];
 			let sphereIdx = 0;
 
@@ -231,6 +233,7 @@
 
 				instructions.style.display = 'none';
 				blocker.style.display = 'none';
+				locked = true;
 
 			} );
 
@@ -238,6 +241,7 @@
 
 				blocker.style.display = 'block';
 				instructions.style.display = '';
+				locked = false;
 
 			} );
 
@@ -260,8 +264,8 @@
 
 				controlsLc.lock();
 				//document.body.requestPointerLock();
-				instructions.style.display = 'none';
-				blocker.style.display = 'none';
+				//instructions.style.display = 'none';
+				//blocker.style.display = 'none';
 
 				mouseTime = performance.now();
 
@@ -269,7 +273,7 @@
 
 			document.addEventListener( 'mouseup', () => {
 				
-				throwBall();
+				if ( locked ) throwBall();
 
 			} );
 
@@ -488,48 +492,52 @@
 
 			function controls( deltaTime ) {
 
-				// gives a bit of air control
-				const speedDelta = deltaTime * ( playerOnFloor ? 25 : 8 );
+				if ( locked ) {
 
-				if ( keyStates[ 'KeyW' ] ) {
+					// gives a bit of air control
+					const speedDelta = deltaTime * ( playerOnFloor ? 25 : 8 );
 
-					playerVelocity.add( getForwardVector().multiplyScalar( speedDelta ) );
+					if ( keyStates[ 'KeyW' ] ) {
 
-				}
-
-				if ( keyStates[ 'KeyS' ] ) {
-
-					playerVelocity.add( getForwardVector().multiplyScalar( - speedDelta ) );
-
-				}
-
-				if ( keyStates[ 'KeyA' ] || keyStates[ 'KeyQ' ] ) {
-
-					playerVelocity.add( getSideVector().multiplyScalar( - speedDelta ) );
-
-				}
-
-				if ( keyStates[ 'KeyD' ] ) {
-
-					playerVelocity.add( getSideVector().multiplyScalar( speedDelta ) );
-
-				}
-
-				if ( playerOnFloor ) {
-
-					if ( keyStates[ 'Space' ] ) {
-
-						playerVelocity.y = 15;
+						playerVelocity.add( getForwardVector().multiplyScalar( speedDelta ) );
 
 					}
 
-				}
-				
-				if ( ! playerOnFloor ) {
+					if ( keyStates[ 'KeyS' ] ) {
 
-					if ( keyStates[ 'KeyC' ] ) {
+						playerVelocity.add( getForwardVector().multiplyScalar( - speedDelta ) );
 
-						playerVelocity.y = -1;
+					}
+
+					if ( keyStates[ 'KeyA' ] || keyStates[ 'KeyQ' ] ) {
+
+						playerVelocity.add( getSideVector().multiplyScalar( - speedDelta ) );
+
+					}
+
+					if ( keyStates[ 'KeyD' ] ) {
+
+						playerVelocity.add( getSideVector().multiplyScalar( speedDelta ) );
+
+					}
+
+					if ( playerOnFloor ) {
+
+						if ( keyStates[ 'Space' ] ) {
+
+							playerVelocity.y = 15;
+
+						}
+
+					}
+					
+					if ( ! playerOnFloor ) {
+
+						if ( keyStates[ 'KeyC' ] ) {
+
+							playerVelocity.y = -1;
+
+						}
 
 					}
 
@@ -592,9 +600,13 @@
 
 					controls( deltaTime );
 
-					updatePlayer( deltaTime );
+					if ( locked ) {
 
-					updateSpheres( deltaTime );
+						updatePlayer( deltaTime );
+
+						updateSpheres( deltaTime );
+
+					}
 
 					teleportPlayerIfOob();
 
