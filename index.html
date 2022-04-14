@@ -136,7 +136,7 @@
 			stats.domElement.style.top = '0px';
 			var xPanel = stats.addPanel( new Stats.Panel( 'x', '#ff8', '#221' ) );
 			var yPanel = stats.addPanel( new Stats.Panel( 'y', '#f8f', '#212' ) );
-			var zPanel = stats.addPanel( new Stats.Panel( 'y', '#8ff', '#122' ) );
+			var zPanel = stats.addPanel( new Stats.Panel( 'z', '#8ff', '#122' ) );
 			stats.showPanel( 4 );
 
 			container.appendChild( stats.domElement );
@@ -618,9 +618,9 @@
 
 				renderer.render( scene, camera );
 
-				xPanel.update( playerVelocity.x, 20 );
-				yPanel.update( playerVelocity.z, 20 );
-				zPanel.update( playerVelocity.z, 20 );
+				xPanel.update( Math.abs(playerVelocity.x), 20 );
+				yPanel.update( Math.abs(playerVelocity.y), 20 );
+				zPanel.update( Math.abs(playerVelocity.z), 20 );
 				stats.update();
 
 				requestAnimationFrame( animate );
