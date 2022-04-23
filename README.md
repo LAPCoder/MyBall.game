@@ -1,10 +1,8 @@
 # MyBall.game
 
 It's a 3D game in JS in the first person.
-It's use ThreeJs.
+It's use ThreeJs and Cannon.js.
 
-Was: ThreeJs.LAPCoder
+## Source
 
-# Source
-
-It come from https://github.com/mrdoob/three.js
+I copy [this ThreeJs example](https://github.com/mrdoob/three.js).
